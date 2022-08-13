@@ -1,6 +1,6 @@
 org: dylanm
-app: aws-python-twitch-eventsub-to-discord
-service: aws-python-twitch-eventsub-to-discord
+app: aws-python-youtube-pubsub-to-discord
+service: aws-python-youtube-pubsub-to-discord
 frameworkVersion: '3'
 useDotenv: true
 
@@ -14,7 +14,6 @@ functions:
     environment:
       DISCORD_WEBHOOK_URL: ${env:DISCORD_WEBHOOK_URL}
       DISCORD_ROLE_ID: ${env:DISCORD_ROLE_ID}
-      TWITCH_USERNAME: ${env:TWITCH_USERNAME}
     events:
       - http:
           path: webhook

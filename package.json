@@ -1,15 +1,15 @@
 {
-  "name": "aws-python-twitch-eventsub-to-discord",
-  "description": "This template takes go-live events from Twitch EventSub, and publishes the events through a Discord Webhook.",
-  "version": "0.1.4",
-  "repository": "github:dylmye/aws-python-twitch-eventsub-to-discord",
+  "name": "aws-python-youtube-pubsub-to-discord-webhook",
+  "description": "This template takes go-live events from YouTube (via PubSub), and publishes the events through a Discord Webhook.",
+  "version": "0.1.0",
+  "repository": "github:dylmye/aws-python-youtube-pubsub-to-discord-webhook",
   "keywords": [
     "python",
     "aws",
     "lambda",
     "serverless",
     "discord",
-    "twitch"
+    "youtube"
   ],
   "author": "Dylan Myers",
   "license": "ISC",
@@ -18,7 +18,7 @@
     "serverless-python-requirements": "5.4.0"
   },
   "bugs": {
-    "url": "https://github.com/dylmye/aws-python-twitch-eventsub-to-discord/issues"
+    "url": "https://github.com/dylmye/aws-python-youtube-pubsub-to-discord-webhook/issues"
   },
-  "homepage": "https://github.com/dylmye/aws-python-twitch-eventsub-to-discord#readme"
+  "homepage": "https://github.com/dylmye/aws-python-youtube-pubsub-to-discord-webhook#readme"
 }
