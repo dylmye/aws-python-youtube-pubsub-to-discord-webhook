@@ -3,7 +3,7 @@ import requests
 from os import environ
 from bs4 import BeautifulSoup
 
-def lambda_handler(event, context):
+def webhook(event, context):
     DISCORD_WEBHOOK_URL = environ.get("DISCORD_WEBHOOK_URL")
     DISCORD_ROLE_ID = environ.get("DISCORD_ROLE_ID")
 

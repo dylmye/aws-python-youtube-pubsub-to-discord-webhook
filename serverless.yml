@@ -1,5 +1,3 @@
-org: dylanm
-app: aws-python-youtube-pubsub-to-discord
 service: aws-python-youtube-pubsub-to-discord
 frameworkVersion: '3'
 useDotenv: true
@@ -7,6 +5,8 @@ useDotenv: true
 provider:
   name: aws
   runtime: python3.8
+  httpApi:
+    cors: true
 
 functions:
   webhook:
@@ -15,10 +15,9 @@ functions:
       DISCORD_WEBHOOK_URL: ${env:DISCORD_WEBHOOK_URL}
       DISCORD_ROLE_ID: ${env:DISCORD_ROLE_ID}
     events:
-      - http:
-          path: webhook
+      - httpApi:
+          path: /webhook
           method: POST
-          cors: true
 
 
 plugins:

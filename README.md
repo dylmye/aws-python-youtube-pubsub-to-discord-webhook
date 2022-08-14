@@ -28,10 +28,10 @@ Set these up in the .env file or pass them as parameters in the monitoring displ
 > Make sure to make your .env file following the .env.example file!
 
 ```
-$ serverless deploy
+$ serverless
 ```
 
-After deploying, you should see output similar to:
+After creating/selecting an app and deploying to it, you should see output similar to:
 
 ```bash
 Deploying aws-python-youtube-pubsub-to-discord-webhook to stage dev (us-east-1)
