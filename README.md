@@ -45,13 +45,16 @@ $ serverless
 After creating/selecting an app and deploying to it, you should see output similar to:
 
 ```bash
-Deploying aws-python-youtube-websub-to-discord-webhook to stage dev (us-east-1)
+Deploying myService to stage dev (us-east-1)
 
-✔ Service deployed to stack aws-python-youtube-websub-to-discord-webhook-dev (140s)
+✔ Service deployed to stack myService-dev (140s)
 
-endpoint: GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/webhook
+endpoints:
+  POST - https://xxxx.execute-api.us-east-1.amazonaws.com/webhook
+  GET - https://xxxx.execute-api.us-east-1.amazonaws.com/webhook
 functions:
-  handler: aws-python-youtube-websub-to-discord-webhook-dev-webhook (2.3 kB)
+  webhook: myService-dev-webhook (621 kB)
+  challenge: myService-dev-challenge (621 kB)
 ```
 
 _Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [httpApi event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api#jwt-authorizers).
