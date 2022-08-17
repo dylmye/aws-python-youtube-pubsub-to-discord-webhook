@@ -6,8 +6,6 @@ serverless_sdk/
 s_webhook.py
 .requirements.zip
 
-serverless.yml
-
 # Distribution / packaging
 .Python
 env/

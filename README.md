@@ -21,13 +21,15 @@ This template takes go-live events from YouTube WebSub (formerly PubSub), and pu
 Set these up in the .env file or pass them as parameters in the monitoring display. Remember that if you are auto-deploying from GitHub etc. your .env file will not be available for the script to read from.
 
 * `DISCORD_WEBHOOK_URL`: This is the URL provided by the Discord webhook you have set up
-* `DISCORD_ROLE_ID`: If you want to @everyone when you go live, set this to "everyone", otherwise set it to the ID of the Discord role that should be @'d.
+* `DISCORD_ROLE_ID`: If you want to @everyone when you go live, set this to "everyone", otherwise set it to the ID of the Discord role that should be @'d. Default: `'everyone'`
+* `INCLUDE_SHORTS_UPLOADS`: Set this to `'False'` if you don't want notifications for YouTube shorts. Default: `'True'`
 
 ### Deployment
 
 > Make sure to make your .env file following the .env.example file!
 
 ```
+$ yarn
 $ serverless
 ```
 
@@ -43,7 +45,7 @@ functions:
   handler: aws-python-youtube-websub-to-discord-webhook-dev-webhook (2.3 kB)
 ```
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
+_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [httpApi event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api#jwt-authorizers).
 
 ### Invocation
 
