@@ -53,7 +53,12 @@ _Note_: In current form, after deployment, your API is public and can be invoked
 
 * 5 minutes of your time
 
-Follow YouTube's guide [here](https://developers.google.com/youtube/v3/guides/push_notifications). In this case, the callback server is this lambda. The Callback URL is the same as the one from the deploy output above.
+Follow YouTube's guide [here](https://developers.google.com/youtube/v3/guides/push_notifications). In this case, the callback server is this lambda. The Callback URL is the same as the one from the deploy output above. PubSub is now called WebSub, and you can find a bunch of WebSub hubs online (these links are not endorsements, just a few examples):
+
+* [WebSubHub.com](https://websubhub.com/) - free, max subscription period is 10 days
+* [Superfeedr](https://superfeedr.com) - unmaintained, free for < 8 subscriptions then $1/8 requests, no max subscription period
+* [Google PubSubHubbub Hub](https://pubsubhubbub.appspot.com/) - unmaintained, no permanent subscriptions
+
 
 ### Local development
 
