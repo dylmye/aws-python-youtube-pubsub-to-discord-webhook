@@ -1,8 +1,8 @@
 {
-  "name": "aws-python-youtube-pubsub-to-discord-webhook",
+  "name": "aws-python-youtube-websub-to-discord-webhook",
   "description": "This template takes go-live events from YouTube (via PubSub), and publishes the events through a Discord Webhook.",
-  "version": "0.1.2",
-  "repository": "github:dylmye/aws-python-youtube-pubsub-to-discord-webhook",
+  "version": "1.0.0",
+  "repository": "github:dylmye/aws-python-youtube-websub-to-discord-webhook",
   "keywords": [
     "python",
     "aws",
@@ -18,9 +18,9 @@
     "serverless-python-requirements": "5.4.0"
   },
   "bugs": {
-    "url": "https://github.com/dylmye/aws-python-youtube-pubsub-to-discord-webhook/issues"
+    "url": "https://github.com/dylmye/aws-python-youtube-websub-to-discord-webhook/issues"
   },
-  "homepage": "https://github.com/dylmye/aws-python-youtube-pubsub-to-discord-webhook#readme",
+  "homepage": "https://github.com/dylmye/aws-python-youtube-websub-to-discord-webhook#readme",
   "devDependencies": {
     "serverless-plugin-common-excludes": "^4.0.0",
     "serverless-plugin-include-dependencies": "^5.0.0"

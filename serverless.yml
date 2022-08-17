@@ -1,4 +1,4 @@
-service: aws-python-youtube-pubsub-to-discord
+service: aws-python-youtube-websub-to-discord
 frameworkVersion: "3"
 useDotenv: true
 

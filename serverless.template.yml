@@ -1,8 +1,8 @@
-name: aws-python-youtube-pubsub-to-discord
-displayName: AWS YouTube PubSub to Discord Webhook
+name: aws-python-youtube-websub-to-discord
+displayName: AWS YouTube WebSub to Discord Webhook
 author: dylmye
-description: This template takes go-live events from YouTube PubSub, and publishes the events through a Discord Webhook.
+description: This template takes go-live events from YouTube WebSub (formerly PubSub), and publishes the events through a Discord Webhook.
 keywords: aws, serverless, lambda, python, youtube, discord, webhook, pubsub
-repo: https://github.com/dylmye/aws-python-youtube-pubsub-to-discord-webhook
+repo: https://github.com/dylmye/aws-python-youtube-websub-to-discord-webhook
 license: ISC
 type: template

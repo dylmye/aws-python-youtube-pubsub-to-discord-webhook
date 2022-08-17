@@ -28,6 +28,15 @@ Set these up in the .env file or pass them as parameters in the monitoring displ
 
 > Make sure to make your .env file following the .env.example file!
 
+First, either run the below script to download this template (recommended), or clone this repository.
+```
+$ serverless create \
+  --template-url https://github.com/dylmye/aws-python-youtube-websub-to-discord-webhook \
+  --path myService
+```
+
+Set up your .env file, then run these scripts to set up the service in your Serverless org:
+
 ```
 $ yarn
 $ serverless
