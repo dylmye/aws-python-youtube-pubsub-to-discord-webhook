@@ -1,6 +1,6 @@
 <!--
-title: 'AWS YouTube PubSub to Discord Webhook'
-description: 'This template takes go-live events from YouTube PubSub, and publishes the events through a Discord webhook.'
+title: 'AWS YouTube WebSub to Discord Webhook'
+description: 'This template takes go-live events from YouTube WebSub (formerly PubSub), and publishes the events through a Discord webhook.'
 layout: Doc
 framework: v3
 platform: AWS
@@ -10,9 +10,9 @@ authorName: 'Dylan Myers'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/7024578?s=200&v=4'
 -->
 
-# Serverless Framework Python YouTube PubSub to Discord Webhook on AWS
+# Serverless Framework Python YouTube WebSub to Discord Webhook on AWS
 
-This template takes go-live events from YouTube PubSub, and publishes the events through a Discord webhook.
+This template takes go-live events from YouTube WebSub (formerly PubSub), and publishes the events through a Discord webhook.
 
 ## Usage
 
@@ -34,13 +34,13 @@ $ serverless
 After creating/selecting an app and deploying to it, you should see output similar to:
 
 ```bash
-Deploying aws-python-youtube-pubsub-to-discord-webhook to stage dev (us-east-1)
+Deploying aws-python-youtube-websub-to-discord-webhook to stage dev (us-east-1)
 
-✔ Service deployed to stack aws-python-youtube-pubsub-to-discord-webhook-dev (140s)
+✔ Service deployed to stack aws-python-youtube-websub-to-discord-webhook-dev (140s)
 
 endpoint: GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/webhook
 functions:
-  handler: aws-python-youtube-pubsub-to-discord-webhook-dev-webhook (2.3 kB)
+  handler: aws-python-youtube-websub-to-discord-webhook-dev-webhook (2.3 kB)
 ```
 
 _Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).

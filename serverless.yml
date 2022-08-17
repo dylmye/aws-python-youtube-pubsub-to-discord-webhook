@@ -1,5 +1,5 @@
-service: aws-python-youtube-pubsub-to-discord
-frameworkVersion: '3'
+service: aws-python-youtube-websub-to-discord
+frameworkVersion: "3"
 useDotenv: true
 
 provider:
@@ -18,13 +18,23 @@ functions:
       - httpApi:
           path: /webhook
           method: POST
-
+  challenge:
+    handler: handler.challenge
+    events:
+      - httpApi:
+          path: /webhook
+          method: GET
 
 plugins:
   - serverless-python-requirements
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies
 
 custom:
   pythonRequirements:
+    zip: true
     slim: true
     useDownloadCache: true
     useStaticCache: true
+  includeDependencies:
+    enableCaching: true

@@ -1,7 +1,25 @@
+try:
+  import unzip_requirements
+except ImportError:
+  pass
+
 import json
 import requests
 from os import environ
 from bs4 import BeautifulSoup
+
+# handle the websub challenge protocol
+def challenge(event, context):
+    # reject challenge requests without a challenge string, a topic, or a non youtube topic
+    if 'hub.challenge' not in event["queryStringParameters"] or 'hub.topic' not in event["queryStringParameters"] or not event["queryStringParameters"]['hub.topic'].startswith("https://www.youtube.com/xml/feeds/videos.xml?channel_id="):
+        return { "statusCode": 404 }
+
+    challenge = event["queryStringParameters"]["hub.challenge"]
+    topic_url = event["queryStringParameters"]["hub.topic"]
+    print("[youtube-pubsub] challenge received: " + challenge + " for topic: " + topic_url)
+
+
+    return { "statusCode": 200, "body": event["queryStringParameters"]["hub.challenge"] }
 
 def webhook(event, context):
     DISCORD_WEBHOOK_URL = environ.get("DISCORD_WEBHOOK_URL")
@@ -12,6 +30,9 @@ def webhook(event, context):
         "body": json.dumps({ "executed": False })
     }
 
+    # don't define lxml - pain in the butt to set up with AWS because of
+    # c dependency
+    # also https://forum.serverless.com/t/13652
     soup = BeautifulSoup(event["body"])
     entry = soup.entry
 
@@ -19,18 +40,20 @@ def webhook(event, context):
         return_obj["body"] = json.dumps({ "executed": False, "error": "No entry found" })
         return return_obj
 
-    title = entry.title
-    link = entry.find("link", rel="alternate")
-    channel = entry.author.id
+    print("[youtube-pubsub] entry recieved: " + str(entry))
 
-    return_obj["body"] = json.dumps({ "executed": False, "title": title.string })
+    title = entry.title.string
+    link = entry.find("link", rel="alternate")
+    channel = entry.author.find('name').string
+
+    return_obj["body"] = json.dumps({ "executed": False, "title": title })
 
     mention_str = ('@everyone, ' if DISCORD_ROLE_ID == 'everyone' else '<@&' + DISCORD_ROLE_ID + '>, ')
 
     data = {
-        "content": "Hey " + mention_str + "**" + channel.string + "** just uploaded a video! Check out '" + title.string + "' here:\n" + link.get("href"),
-        "username": channel.string,
-        "avatar_url": "https://avatar.glue-bot.xyz/youtube-avatar/q?url=" . link.get("href")
+        "content": "Hey " + mention_str + "**" + channel + "** just uploaded a video! Check out '" + title + "' here:\n" + link.get("href"),
+        "username": channel,
+        "avatar_url": "https://avatar.glue-bot.xyz/youtube-avatar/q?url=" + link.get("href")
     }
 
     result = requests.post(DISCORD_WEBHOOK_URL, json = data)
